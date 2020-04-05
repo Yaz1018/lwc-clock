@@ -36,3 +36,49 @@ img {
 .greeting {
     height: 75px;
 }
+.clock-outline {
+    border: 1px solid black;
+    border-radius: 50%;
+    height: 500px;
+    width: 500px;
+    margin: auto;
+}
+.middle-dot {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border-radius: 50%;
+    top: 245px;
+    margin: auto;
+}
+
+.second-hand {
+    width: 3px;
+    height: 250px;
+    background-color: black;
+    position: relative;
+    margin: auto;
+    top: -10px;
+    transform-origin: bottom center;
+}
+
+.minute-hand {
+    width: 5px;
+    height: 200px;
+    background-color: black;
+    position: relative;
+    margin: auto;
+    top: -210px;
+    transform-origin: bottom center;
+}
+
+.hour-hand {
+    width: 7px;
+    height: 100px;
+    background-color: black;
+    position: relative;
+    margin: auto;
+    top: -310px;
+    transform-origin: bottom center;
+}
