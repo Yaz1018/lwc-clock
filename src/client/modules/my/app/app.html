@@ -1,22 +1,36 @@
 <template>
     <div class="container">
-        <div class="header">
-            <h1>My Clock</h1>
-        </div>
-        <div class="clock-body">
-            <div class="clock-outline">
-
-                <div class="middle-dot"></div>
-                <div class="second-hand"></div>
-                <div class="minute-hand"></div>
-                <div class="hour-hand"></div>
-                <template for:each={clockHourData} for:item="clockHour">
-                    <div class="hourContain" key={clockHour.hour} style={clockHour.style}>
-                        <div class="hourTic"></div>
-                        <div class="hourNum" >{clockHour.hour}</div>
-                    </div>
-                </template>
+        <template if:true={isTrueTemplate}>
+            <div class="header">
+                <h1>My Clock</h1>
             </div>
-        </div>
+            <div class="clock-body">
+                <div class="clock-outline">
+    
+                    <div class="middle-dot"></div>
+                    <div class="second-hand"></div>
+                    <div class="minute-hand"></div>
+                    <div class="hour-hand"></div>
+                    <template for:each={clockHourData} for:item="clockHour">
+                        <div class="hourContain" key={clockHour.hour} style={clockHour.style}>
+                            <div class="hourTic"></div>
+                            <div class="hourNum" >{clockHour.hour}</div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+          </template>
+          <template if:false={isTrueTemplate}>
+            <div class="demo-only" style="height:6rem">
+                <div class="slds-spinner_container">
+                  <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                    <span class="slds-assistive-text">Loading</span>
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                  </div>
+                </div>
+              </div>
+        </template>
+
     </div>
 </template>

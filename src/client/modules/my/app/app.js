@@ -37,29 +37,39 @@ export default class App extends LightningElement {
         //console.log(this.hourHand)  
     }
 
+    async loadPromise () {
+        this.secondHand = this.template.querySelector(".second-hand");
+        this.minuteHand = this.template.querySelector(".minute-hand");
+        this.hourHand = this.template.querySelector(".hour-hand");
+        return "Done!"
+    }
+
     myClock() {
         var d = new Date();
-
-        this.seconds(d)
-        this.minutes(d)
-        this.clockHours(d)
-
+        if (this.isTrueTemplate) {
+            this.seconds(d)
+            this.minutes(d)
+            this.clockHours(d)
+        }
+        else {
+            console.log('Data not loaded')
+        }
+        //setTimeout(this.myClock, 1000);
     }
       
     myVar = setInterval(this.myClock.bind(this), 1000);
     connectedCallback() {
 
+
         clockData.forEach(x => {
             x.style = "transform:rotate(" + x.hour * 30 + "deg)"
             this.clockHourData.push(x)
         })
+
     }
     renderedCallback() {
-
-        this.secondHand = this.template.querySelector(".second-hand");
-        this.minuteHand = this.template.querySelector(".minute-hand");
-        this.hourHand = this.template.querySelector(".hour-hand");
-
+        this.isTrueTemplate = true
+        this.loadPromise().then(() => this.myClock())  
     }
 
 }
