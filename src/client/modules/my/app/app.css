@@ -36,8 +36,13 @@ img {
 .greeting {
     height: 75px;
 }
+
+.clock-body {
+    position: relative;
+}
+
 .clock-outline {
-    border: 1px solid black;
+    border: 10px solid #E01A5E;
     border-radius: 50%;
     height: 500px;
     width: 500px;
@@ -81,4 +86,25 @@ img {
     margin: auto;
     top: -310px;
     transform-origin: bottom center;
+}
+
+.hourContain {
+    height: 240px;
+    position: absolute;
+    top: 18px;
+    right: 410px;
+    transform-origin: bottom center;
+    width: 50px;
+}
+
+.hourNum {
+    text-align: center;
+    font-size: 25px;
+}
+
+.hourTic {
+    width: 2px;
+    background-color: black;
+    height: 10px;
+    margin: 0 auto 10px auto;
 }

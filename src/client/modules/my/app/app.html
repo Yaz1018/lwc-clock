@@ -5,10 +5,17 @@
         </div>
         <div class="clock-body">
             <div class="clock-outline">
+
                 <div class="middle-dot"></div>
                 <div class="second-hand"></div>
                 <div class="minute-hand"></div>
                 <div class="hour-hand"></div>
+                <template for:each={clockHourData} for:item="clockHour">
+                    <div class="hourContain" key={clockHour.hour} style={clockHour.style}>
+                        <div class="hourTic"></div>
+                        <div class="hourNum" >{clockHour.hour}</div>
+                    </div>
+                </template>
             </div>
         </div>
     </div>
