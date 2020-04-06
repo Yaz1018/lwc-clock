@@ -37,6 +37,10 @@ img {
     height: 75px;
 }
 
+.container {
+    width: 869px;
+}
+
 .clock-body {
     position: relative;
 }

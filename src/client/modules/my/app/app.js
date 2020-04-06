@@ -8,8 +8,8 @@ export default class App extends LightningElement {
     secondHand;
     minuteHand;
     hourHand;
-    hourTic;
     clockHourData = [];
+    isTrueTemplate = false;
     seconds(d) {
         var n = d.getSeconds() * 6;
         this.secs = n;
@@ -24,12 +24,13 @@ export default class App extends LightningElement {
     }
     clockHours(d) {
         var n = d.getHours();
+        var m = d.getMinutes()
         if (n > 12) {
-            n = (n - 12) * 30;
+            n = (n - 12) * 30 + (m/2);
             this.hours = n;
             this.hourHand.style.transform = `rotate(${this.hours}deg)`
         } else {
-            n = n * 30;
+            n = n * 30 + (m/2);
             this.hours = n;
             this.hourHand.style.transform = `rotate(${this.hours}deg)`
         }
@@ -42,36 +43,23 @@ export default class App extends LightningElement {
         this.seconds(d)
         this.minutes(d)
         this.clockHours(d)
-        //console.log(this.clockHourData)
-
 
     }
       
     myVar = setInterval(this.myClock.bind(this), 1000);
     connectedCallback() {
-        console.log('clockHours', clockData)
-        //clockData.forEach(this.myFunction);
 
         clockData.forEach(x => {
             x.style = "transform:rotate(" + x.hour * 30 + "deg)"
             this.clockHourData.push(x)
         })
-        // .then(results => {
-        //     //this.clockHourData = results
-        //     console.log(results)
-        // })
     }
     renderedCallback() {
 
-        //console.log("In connected Callback")
-        //console.log('clockHours', this.clockHourData)
         this.secondHand = this.template.querySelector(".second-hand");
         this.minuteHand = this.template.querySelector(".minute-hand");
         this.hourHand = this.template.querySelector(".hour-hand");
-        this.hourTic = this.template.querySelector(".hourTic");
 
-
-        //console.log("renderedCallback", this.secondHand) 
     }
 
 }
